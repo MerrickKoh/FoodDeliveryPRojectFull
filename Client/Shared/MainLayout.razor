@@ -1,0 +1,40 @@
+﻿@inherits LayoutComponentBase
+
+<div class="page">
+    <div class="sidebar">
+        <NavMenu />
+    </div>
+
+    <div class="main">
+        <div class="top-row px-4 auth">
+            <NavLink class="nav-link" href="FoodSelect">
+                <span class="oi oi-cart" aria-hidden="true"></span>
+            </NavLink>
+            <LoginDisplay />
+
+
+
+        </div>
+
+        <div class="content px-4">
+            @Body
+        </div>
+        <br />
+        <hr color="red" />
+        <div class="bottom">
+            <div>
+               <Bottom />
+            </div>
+            <div tandc>
+                <NavLink href="https://www.facebook.com/" target="_blank" style="">
+                    Terms and Condition
+                </NavLink>
+                <NavLink href="https://www.facebook.com/" target="_blank" style="">
+                    Privacy
+                </NavLink>
+            </div>
+        </div>
+    </div>
+    
+    
+</div>
