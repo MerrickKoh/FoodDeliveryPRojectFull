@@ -1,4 +1,5 @@
 ﻿using FoodDeliveryPRojectFull.Server.Models;
+using FoodDeliveryPRojectFull.Shared.Domains;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
 using Microsoft.EntityFrameworkCore;
@@ -17,5 +18,12 @@ namespace FoodDeliveryPRojectFull.Server.Data
             IOptions<OperationalStoreOptions> operationalStoreOptions) : base(options, operationalStoreOptions)
         {
         }
+        public DbSet<Catergory> Catergory { get; set; }
+        public DbSet<Customer> Customer { get; set; }
+        public DbSet<Events> Events { get; set; }
+        public DbSet<Food> Food { get; set; }
+        public DbSet<Orders> Orders { get; set; }
+        public DbSet<payment> payment { get; set; }
+
     }
 }
