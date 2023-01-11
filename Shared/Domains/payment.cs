@@ -1,10 +1,10 @@
 ﻿using System;
 namespace FoodDeliveryPRojectFull.Shared.Domains
 {
-    public class payment:BaseDomainModel
+    public class Payment:BaseDomainModel
     {
-       public string svc { get; set; }
+       public string Svc { get; set; }
        public string CardNo { get; set; }
-       public DateTime expire { get; set; }
+       public DateTime Expire { get; set; }
     }
 }

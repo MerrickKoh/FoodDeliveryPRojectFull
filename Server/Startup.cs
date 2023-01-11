@@ -1,5 +1,7 @@
 using FoodDeliveryPRojectFull.Server.Data;
+using FoodDeliveryPRojectFull.Server.IRepository;
 using FoodDeliveryPRojectFull.Server.Models;
+using FoodDeliveryPRojectFull.Server.Repository;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,6 +42,8 @@ namespace FoodDeliveryPRojectFull.Server
 
             services.AddAuthentication()
                 .AddIdentityServerJwt();
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();

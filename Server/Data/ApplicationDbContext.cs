@@ -1,4 +1,5 @@
-﻿using FoodDeliveryPRojectFull.Server.Models;
+﻿using FoodDeliveryPRojectFull.Server.Configurations.Entities;
+using FoodDeliveryPRojectFull.Server.Models;
 using FoodDeliveryPRojectFull.Shared.Domains;
 using IdentityServer4.EntityFramework.Options;
 using Microsoft.AspNetCore.ApiAuthorization.IdentityServer;
@@ -23,7 +24,16 @@ namespace FoodDeliveryPRojectFull.Server.Data
         public DbSet<Events> Events { get; set; }
         public DbSet<Food> Food { get; set; }
         public DbSet<Orders> Orders { get; set; }
-        public DbSet<payment> payment { get; set; }
-
+        public DbSet<Payment> Payment { get; set; }
+       
+        protected override void OnModelCreating(ModelBuilder builder)
+        {
+            base.OnModelCreating(builder);
+            builder.ApplyConfiguration(new CatergorySeedConfiguration());
+            builder.ApplyConfiguration(new RoleSeedConfiguration());
+            builder.ApplyConfiguration(new UserRoleSeedConfiguration());
+            builder.ApplyConfiguration(new UserSeedConfiguration());
+        }
     }
+   
 }

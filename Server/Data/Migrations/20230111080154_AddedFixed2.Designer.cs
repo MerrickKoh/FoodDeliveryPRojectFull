@@ -4,14 +4,16 @@ using FoodDeliveryPRojectFull.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FoodDeliveryPRojectFull.Server.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230111080154_AddedFixed2")]
+    partial class AddedFixed2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -88,26 +90,6 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "0ad66375-7be5-4cb8-806e-c9ad74dc781d",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "64f5ecfe-12bc-4ae9-9084-97ac9e113335",
-                            Email = "admin@localhost.com",
-                            EmailConfirmed = false,
-                            FirstName = "Admin",
-                            LastName = "User",
-                            LockoutEnabled = false,
-                            NormalizedEmail = "ADMIN@LOCALHOST.COM",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEMsbtxqVGGvAJzSbmjsQyIqHlxW9zNV8mrQhLg6C3pWih89wlMJCUirbDIA+wi2tSQ==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "2488ea03-72ee-4262-9434-f5fa3df2726f",
-                            TwoFactorEnabled = false,
-                            UserName = "Admin"
-                        });
                 });
 
             modelBuilder.Entity("FoodDeliveryPRojectFull.Shared.Domains.Catergory", b =>
@@ -141,8 +123,8 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 1, 11, 16, 7, 1, 201, DateTimeKind.Local).AddTicks(6929),
-                            DateUpdated = new DateTime(2023, 1, 11, 16, 7, 1, 203, DateTimeKind.Local).AddTicks(8982),
+                            DateCreated = new DateTime(2023, 1, 11, 16, 1, 53, 554, DateTimeKind.Local).AddTicks(1949),
+                            DateUpdated = new DateTime(2023, 1, 11, 16, 1, 53, 556, DateTimeKind.Local).AddTicks(8258),
                             Name = "Sushi",
                             UpdatedBy = "System"
                         },
@@ -150,8 +132,8 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(274),
-                            DateUpdated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(282),
+                            DateCreated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(333),
+                            DateUpdated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(355),
                             Name = "Ramen",
                             UpdatedBy = "System"
                         },
@@ -159,8 +141,8 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(286),
-                            DateUpdated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(288),
+                            DateCreated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(360),
+                            DateUpdated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(363),
                             Name = "Curry",
                             UpdatedBy = "System"
                         },
@@ -168,8 +150,8 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         {
                             Id = 4,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(292),
-                            DateUpdated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(294),
+                            DateCreated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(367),
+                            DateUpdated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(369),
                             Name = "Bento",
                             UpdatedBy = "System"
                         },
@@ -177,8 +159,8 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         {
                             Id = 5,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(297),
-                            DateUpdated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(298),
+                            DateCreated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(371),
+                            DateUpdated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(373),
                             Name = "Soup",
                             UpdatedBy = "System"
                         },
@@ -186,8 +168,8 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         {
                             Id = 6,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(301),
-                            DateUpdated = new DateTime(2023, 1, 11, 16, 7, 1, 204, DateTimeKind.Local).AddTicks(303),
+                            DateCreated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(376),
+                            DateUpdated = new DateTime(2023, 1, 11, 16, 1, 53, 557, DateTimeKind.Local).AddTicks(378),
                             Name = "Drinks",
                             UpdatedBy = "System"
                         });
@@ -512,22 +494,6 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "4d6ff59a-9f53-4128-801b-2f1c8630aa69",
-                            ConcurrencyStamp = "ec9f4dc1-a152-4966-8e67-4ea82594e77a",
-                            Name = "Administrator",
-                            NormalizedName = "ADMINISTRATOR"
-                        },
-                        new
-                        {
-                            Id = "75a8c3ae-282b-4c8a-88c2-be8c0cd23659",
-                            ConcurrencyStamp = "dd101968-bf41-44f3-beda-43c55bd6a2ed",
-                            Name = "User",
-                            NormalizedName = "USER"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -615,13 +581,6 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            UserId = "0ad66375-7be5-4cb8-806e-c9ad74dc781d",
-                            RoleId = "4d6ff59a-9f53-4128-801b-2f1c8630aa69"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
