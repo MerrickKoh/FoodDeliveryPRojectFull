@@ -14,7 +14,6 @@ namespace FoodDeliveryPRojectFull.Shared.Domains
         public virtual Events Events { get; set; }
         public int CatergoryId { get; set; }
         public virtual Catergory Catergory { get; set; }
-        public virtual List<Orders> Orders { get; set; }
 
 
     }

@@ -8,7 +8,7 @@ namespace FoodDeliveryPRojectFull.Shared.Domains
         public DateTime OrderTime { get; set; }
         public int FoodId { get; set; }
         public virtual List<Food> Food { get; set; }
-       
+        public Food Foods { get; set; }
         public virtual Customer Customer{ get; set; }
     }
 }

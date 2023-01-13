@@ -1,0 +1,66 @@
+﻿@page "/Events/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+<h3>Events</h3>
+
+@if (Events == null)
+{
+    <div class="alert alert-info">Loading Events...</div>
+}
+
+else
+{
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Event in Events)
+            { 
+                <tr>
+                    <td>@Event.Name</td>
+                    <td>
+                        <a href="/Events/view/@Event.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/Events/edit/@Event.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(Event.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+
+
+
+
+@code {
+    private List<Events> Events;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Events = await _client.GetFromJsonAsync<List<Events>>($"{EndPoint.EventsEndPoint}");
+    }
+
+    async Task Delete(int EventId)
+    {
+        var Event = Events.First(q => q.Id == EventId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {Event.Name}?");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{EndPoint.EventsEndPoint}/{EventId}");
+            await OnInitializedAsync();
+        }
+    }
+
+}
