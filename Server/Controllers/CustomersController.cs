@@ -26,7 +26,7 @@ namespace FoodDeliveryPRojectFull.Server.Controllers
         [HttpGet]
         public async Task<IActionResult> GetCustomer()
         {
-            var Customers = await _unitOfWork.Customers.GetAll();
+            var Customers = await _unitOfWork.Customers.GetAll(includes: q => q.Include(x =>x.Payment).Include(x => x.Orders));
             return Ok(Customers);
         }
 

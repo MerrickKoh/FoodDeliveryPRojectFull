@@ -3,7 +3,12 @@
 @inject IJSRuntime js
 @attribute [Authorize]
 <h3>Customers</h3>
-
+<a href="/customers/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Customer
+</a>
+<br />
+<br />
 @if (Customers == null)
 {
     <div class="alert alert-info">Loading Customers...</div>
@@ -14,6 +19,7 @@ else
     <table class="table table-responsive">
         <thead>
             <tr>
+                <th>Name</th>
                 <th>Email</th>
                 <th>Address</th>
                 <th>Contact</th>
@@ -23,12 +29,15 @@ else
         </thead>
         <tbody>
             @foreach (var customer in Customers)
-            { 
+            {
                 <tr>
+                    <td>@customer.Name</td>
                     <td>@customer.Email</td>
                     <td>@customer.Address</td>
                     <td>@customer.Contact</td>
                     <td>@customer.Payment.CardNo</td>
+                    <td>@customer.Payment.Svc</td>
+                    <td>@customer.Payment.Expire.ToString("d MM yyyy")</td>
                     <td>
                         <a href="/Customers/view/@customer.Id" class="btn btn-primary">
                             <span class="oi oi-book"></span>

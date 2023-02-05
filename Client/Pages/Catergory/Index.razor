@@ -3,6 +3,10 @@
 @inject IJSRuntime js
 @attribute [Authorize]
 <h3>Catergories</h3>
+<a href="/Catergories/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Create New Catergory
+</a>
 
 @if (Catergories == null)
 {

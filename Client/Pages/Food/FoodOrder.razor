@@ -1,12 +1,8 @@
-﻿@page "/Foods/"
+﻿@page "/FoodsOrder/"
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
 <h3>Foods</h3>
-<a href="/Foods/create" class="btn btn-secondary">
-    <span class="oi oi-plus"></span>
-    Create New Food
-</a>
 <br />
 <br />
 @if (Foods == null)
@@ -23,6 +19,7 @@ else
                 <th>Name</th>
                 <th>Catergory</th>
                 <th>Event</th>
+                <th>Price</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -36,17 +33,14 @@ else
                     <td>@Food.Name</td>
                     <td>@Food.Catergory.Name</td>
                     <td>@Food.Events.Name</td>
+                    <td>@Food.Price</td>
 
                     <td>
-                        <a href="/Foods/view/@Food.Id" class="btn btn-primary">
-                            <span class="oi oi-book"></span>
+                        <a href="/FoodsOrder/buy/@Food.Id" class="btn btn-success">
+                            BUY NOW
                         </a>
-                        <a href="/Foods/edit/@Food.Id" class="btn btn-warning">
-                            <span class="oi oi-pencil"></span>
-                        </a>
-                        <button class="btn btn-danger" @onclick="@(()=>Delete(Food.Id))">
-                            <span class="oi oi-delete"></span>
-                        </button>
+                      
+                      
                     </td>
                 </tr>
             }
@@ -59,6 +53,7 @@ else
 
 
 @code {
+
     private List<Food> Foods;
 
     protected async override Task OnInitializedAsync()
@@ -66,15 +61,5 @@ else
         Foods = await _client.GetFromJsonAsync<List<Food>>($"{EndPoint.FoodsEndPoint}");
     }
 
-    async Task Delete(int FoodId)
-    {
-        var Food = Foods.First(q => q.Id == FoodId);
-        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {Food.Name}?");
-        if (confirm)
-        {
-            await _client.DeleteAsync($"{EndPoint.FoodsEndPoint}/{FoodId}");
-            await OnInitializedAsync();
-        }
-    }
 
 }

@@ -4,16 +4,14 @@ using FoodDeliveryPRojectFull.Server.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace FoodDeliveryPRojectFull.Server.Data.Migrations
+namespace FoodDeliveryPRojectFull.Server.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230106031959_AddApplicationTables")]
-    partial class AddApplicationTables
+    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
     {
-        protected override void BuildTargetModel(ModelBuilder modelBuilder)
+        protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -90,6 +88,26 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "0ad66375-7be5-4cb8-806e-c9ad74dc781d",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5f72f80a-0d23-45f6-8d97-e72fb2ac6d63",
+                            Email = "admin@localhost.com",
+                            EmailConfirmed = false,
+                            FirstName = "Admin",
+                            LastName = "User",
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@LOCALHOST.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAEEsQmZlTiWQbfmIOYFblydnmNWEURMUSzoCKRwPddt4QN7WfSWEouABYPNeCLNplKw==",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "a83ba360-fbe9-4d40-becc-cebf6ab63e0b",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("FoodDeliveryPRojectFull.Shared.Domains.Catergory", b =>
@@ -117,6 +135,62 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Catergory");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(68),
+                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(8480),
+                            Name = "Sushi",
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9201),
+                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9205),
+                            Name = "Ramen",
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9207),
+                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9208),
+                            Name = "Curry",
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9210),
+                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9211),
+                            Name = "Bento",
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9212),
+                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9213),
+                            Name = "Soup",
+                            UpdatedBy = "System"
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CreatedBy = "System",
+                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9214),
+                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9215),
+                            Name = "Drinks",
+                            UpdatedBy = "System"
+                        });
                 });
 
             modelBuilder.Entity("FoodDeliveryPRojectFull.Shared.Domains.Customer", b =>
@@ -144,15 +218,18 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PaymentId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("paymentId")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.HasIndex("paymentId");
+                    b.HasIndex("PaymentId");
 
                     b.ToTable("Customer");
                 });
@@ -172,9 +249,6 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
 
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
-
-                    b.Property<bool>("IsEvent")
-                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -209,8 +283,14 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                     b.Property<int>("EventsId")
                         .HasColumnType("int");
 
+                    b.Property<string>("ImgUrl")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("OrdersId")
+                        .HasColumnType("int");
 
                     b.Property<int>("Price")
                         .HasColumnType("int");
@@ -223,6 +303,8 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                     b.HasIndex("CatergoryId");
 
                     b.HasIndex("EventsId");
+
+                    b.HasIndex("OrdersId");
 
                     b.ToTable("Food");
                 });
@@ -237,7 +319,7 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("CustomerId")
+                    b.Property<int>("CustomerId")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("DateCreated")
@@ -259,10 +341,12 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
 
                     b.HasIndex("CustomerId");
 
+                    b.HasIndex("FoodId");
+
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("FoodDeliveryPRojectFull.Shared.Domains.payment", b =>
+            modelBuilder.Entity("FoodDeliveryPRojectFull.Shared.Domains.Payment", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -281,33 +365,18 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                     b.Property<DateTime>("DateUpdated")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UpdatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("expire")
+                    b.Property<DateTime>("Expire")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("svc")
+                    b.Property<string>("Svc")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.ToTable("payment");
-                });
-
-            modelBuilder.Entity("FoodOrders", b =>
-                {
-                    b.Property<int>("FoodId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("OrdersId")
-                        .HasColumnType("int");
-
-                    b.HasKey("FoodId", "OrdersId");
-
-                    b.HasIndex("OrdersId");
-
-                    b.ToTable("FoodOrders");
+                    b.ToTable("Payment");
                 });
 
             modelBuilder.Entity("IdentityServer4.EntityFramework.Entities.DeviceFlowCodes", b =>
@@ -438,6 +507,22 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "4d6ff59a-9f53-4128-801b-2f1c8630aa69",
+                            ConcurrencyStamp = "06b44c06-c730-4b97-b9e7-1694a35e3411",
+                            Name = "Administrator",
+                            NormalizedName = "ADMINISTRATOR"
+                        },
+                        new
+                        {
+                            Id = "75a8c3ae-282b-4c8a-88c2-be8c0cd23659",
+                            ConcurrencyStamp = "7085b31e-51db-41a5-834a-d836bdfce4e1",
+                            Name = "User",
+                            NormalizedName = "USER"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -525,6 +610,13 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetUserRoles");
+
+                    b.HasData(
+                        new
+                        {
+                            UserId = "0ad66375-7be5-4cb8-806e-c9ad74dc781d",
+                            RoleId = "4d6ff59a-9f53-4128-801b-2f1c8630aa69"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
@@ -550,11 +642,13 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
 
             modelBuilder.Entity("FoodDeliveryPRojectFull.Shared.Domains.Customer", b =>
                 {
-                    b.HasOne("FoodDeliveryPRojectFull.Shared.Domains.payment", "payment")
+                    b.HasOne("FoodDeliveryPRojectFull.Shared.Domains.Payment", "Payment")
                         .WithMany()
-                        .HasForeignKey("paymentId");
+                        .HasForeignKey("PaymentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("payment");
+                    b.Navigation("Payment");
                 });
 
             modelBuilder.Entity("FoodDeliveryPRojectFull.Shared.Domains.Food", b =>
@@ -571,6 +665,10 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
+                    b.HasOne("FoodDeliveryPRojectFull.Shared.Domains.Orders", null)
+                        .WithMany("Foods")
+                        .HasForeignKey("OrdersId");
+
                     b.Navigation("Catergory");
 
                     b.Navigation("Events");
@@ -580,24 +678,19 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
                 {
                     b.HasOne("FoodDeliveryPRojectFull.Shared.Domains.Customer", "Customer")
                         .WithMany("Orders")
-                        .HasForeignKey("CustomerId");
+                        .HasForeignKey("CustomerId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Customer");
-                });
-
-            modelBuilder.Entity("FoodOrders", b =>
-                {
-                    b.HasOne("FoodDeliveryPRojectFull.Shared.Domains.Food", null)
+                    b.HasOne("FoodDeliveryPRojectFull.Shared.Domains.Food", "Food")
                         .WithMany()
                         .HasForeignKey("FoodId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FoodDeliveryPRojectFull.Shared.Domains.Orders", null)
-                        .WithMany()
-                        .HasForeignKey("OrdersId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                    b.Navigation("Customer");
+
+                    b.Navigation("Food");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -654,6 +747,11 @@ namespace FoodDeliveryPRojectFull.Server.Data.Migrations
             modelBuilder.Entity("FoodDeliveryPRojectFull.Shared.Domains.Customer", b =>
                 {
                     b.Navigation("Orders");
+                });
+
+            modelBuilder.Entity("FoodDeliveryPRojectFull.Shared.Domains.Orders", b =>
+                {
+                    b.Navigation("Foods");
                 });
 #pragma warning restore 612, 618
         }
