@@ -26,4 +26,17 @@
     <Folder Include="wwwroot\Pictures\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="Pages\Delivery\Create.razor" />
+    <None Include="Pages\Delivery\Edit.razor" />
+    <None Include="Pages\Delivery\FormComponent.razor" />
+    <None Include="Pages\Delivery\Index.razor" />
+    <None Include="Pages\Delivery\View.razor" />
+    <None Include="Pages\SalesReport\Create.razor" />
+    <None Include="Pages\SalesReport\Edit.razor" />
+    <None Include="Pages\SalesReport\FormComponent.razor" />
+    <None Include="Pages\SalesReport\Index.razor" />
+    <None Include="Pages\SalesReport\View.razor" />
+  </ItemGroup>
+
 </Project>

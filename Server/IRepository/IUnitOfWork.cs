@@ -16,5 +16,7 @@ namespace FoodDeliveryPRojectFull.Server.IRepository
         IGenericRepository<Orders> Orders { get; }
         IGenericRepository<Food> Foods { get; }
         IGenericRepository<Customer> Customers { get; }
+        IGenericRepository<SalesReport> SalesReport { get; }
+        IGenericRepository<Delivery> Delivery { get; }
     }
 }

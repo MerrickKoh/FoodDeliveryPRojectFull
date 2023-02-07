@@ -22,6 +22,9 @@ namespace FoodDeliveryPRojectFull.Server.Repository
         private IGenericRepository<Customer> _customers;
         private IGenericRepository<Food> _food;
         private UserManager<ApplicationUser> _userManager;
+        private IGenericRepository<SalesReport> _salesreport;
+        private IGenericRepository<Delivery> _delivery;
+
         public UnitOfWork(ApplicationDbContext context,
         UserManager<ApplicationUser> userManager)
         {
@@ -43,6 +46,11 @@ namespace FoodDeliveryPRojectFull.Server.Repository
             => _food ??= new GenericRepository<Food>(_context);
         public IGenericRepository<Customer> Customers
             => _customers ??= new GenericRepository<Customer>(_context);
+        public IGenericRepository<SalesReport> SalesReport
+    => _salesreport ??= new GenericRepository<SalesReport>(_context);
+        public IGenericRepository<Delivery> Delivery
+            => _delivery ??= new GenericRepository<Delivery>(_context);
+
 
         public void Dispose()
         {

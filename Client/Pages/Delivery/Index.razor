@@ -1,0 +1,87 @@
+﻿@page "/Delivery/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@attribute [Authorize]
+<h3>Deliveries</h3>
+<a href="/Delivery/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Place Delivery
+</a>
+<br />
+<br />
+@if (Delivery == null)
+{
+    <div class="alert alert-info">Loading Orders...</div>
+}
+
+else
+{
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Driver Name</th>
+                <th>Customer Name</th>
+                <th>Customer Contact</th>
+                <th>Address</th>
+                <th>Food</th>
+                <th>Price</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Deliver in Delivery)
+            {
+                <tr>
+                    <td>@Deliver.Id.ToString()</td>
+                    <td>@Deliver.DeliveryName</td>
+                    <td>@Deliver.Customer.Name</td>
+                    <td>@Deliver.Customer.Contact</td>
+                    <td>@Deliver.Food.Name</td>
+                    <td>@Deliver.Food.Price </td>
+                    <td>@Deliver.OrderTime.Date.ToString("dd MMMM yyyy")</td>
+                    <td>@Deliver.Status</td>
+                    <td>
+                        <button class="btn btn-primary" @onclick="@(()=>Ready(Deliver.Id)"> 
+                            <span class="oi oi-check"></span>
+                        </button>
+                        <a href="/Delivery/edit/@Deliver.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(Deliver.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+@code {
+
+    private List<Delivery> Delivery;
+
+    protected async override Task OnInitializedAsync()
+    {  
+        Delivery = await _client.GetFromJsonAsync<List<Delivery>>($"{EndPoint.DeliveryEndPoint}");
+    }
+
+    async Task Delete(int DeliverId)
+    {
+        var Deliver = Delivery.First(q => q.Id == DeliverId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to cancel {Deliver.Id}?");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{EndPoint.DeliveryEndPoint}/{DeliverId}");
+            await OnInitializedAsync();
+        }
+    }
+
+    // Set Delivery status as ready
+    async Task Ready(int DeliverId)
+    {
+
+    }
+}

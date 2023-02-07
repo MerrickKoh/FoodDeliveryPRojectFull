@@ -1,0 +1,85 @@
+﻿@page "/SalesReport/"
+@inject HttpClient _client
+@inject IJSRuntime js
+@*@attribute [Authorize]
+*@<h3>SalesReport</h3>
+<a href="/salesreport/create" class="btn btn-secondary">
+    <span class="oi oi-plus"></span>
+    Add New Report
+</a>
+<br />
+<br />
+@if (SalesReport == null)
+{
+    <div class="alert alert-info">Loading Reports...</div>
+}
+
+else
+{
+    <table class="table table-responsive">
+        <thead>
+            <tr>
+                <th>Order Id</th>
+                <th>Food</th>
+                <th>Customer Name</th>
+                <th>Address</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Price</th>
+                <th>Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Sale in SalesReport)
+            {
+                <tr>
+                    <td>@Sale.Id.ToString()</td>
+                    <td>@Sale.Food.Name</td>
+                    <td>@Sale.Customer.Name</td>
+                    <td>@Sale.Customer.Address</td>
+                    <td>@Sale.Customer.Contact</td>
+                    <td>@Sale.Customer.Email</td>
+                    <td>@Sale.Food.Price </td>
+                    <td>@Sale.OrderTime.Date.ToString("dd MMMM yyyy")</td>
+                   
+
+                    <td>
+                        <a href="/SalesReport/view/@Sale.Id" class="btn btn-primary">
+                            <span class="oi oi-book"></span>
+                        </a>
+                        <a href="/SalesReport/edit/@Sale.Id" class="btn btn-warning">
+                            <span class="oi oi-pencil"></span>
+                        </a>
+                        <button class="btn btn-danger" @onclick="@(()=>Delete(Sale.Id))">
+                            <span class="oi oi-delete"></span>
+                        </button>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+}
+
+
+
+
+@code {
+    private List<SalesReport> SalesReport;
+
+    protected async override Task OnInitializedAsync()
+    {
+        SalesReport = await _client.GetFromJsonAsync<List<SalesReport>>($"{EndPoint.SalesReportEndPoint}");
+    }
+
+    async Task Delete(int SaleId)
+    {
+        var Sale = SalesReport.First(q => q.Id == SaleId);
+        var confirm = await js.InvokeAsync<bool>("confirm", $"Do you want to delete {Sale.Id}?");
+        if (confirm)
+        {
+            await _client.DeleteAsync($"{EndPoint.SalesReportEndPoint}/{SaleId}");
+            await OnInitializedAsync();
+        }
+    }
+}

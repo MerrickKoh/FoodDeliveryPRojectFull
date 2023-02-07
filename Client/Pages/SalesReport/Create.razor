@@ -1,0 +1,74 @@
+﻿@page "/SalesReport/create"
+@inject HttpClient _client
+@inject NavigationManager _navManager
+<h3>Add Report</h3>
+<hr />
+<br />
+
+<EditForm Model="@sale" OnValidSubmit="AddSale">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+    <div class="form-group">
+        <label>Customer: </label>
+        <div>
+            <InputSelect @bind-Value="sale.CustomerId" class="form-control">
+                <option value="">-- Select Customer --</option>
+                @if (Customers != null)
+                {
+                    foreach (var customer in Customers)
+                    {
+                        <option value="@customer.Id">@customer.Name</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="@(() => sale.Customer)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Food: </label>
+        <div>
+            <InputSelect @bind-Value="sale.FoodId" class="form-control">
+                <option value="">-- Select Food --</option>
+                @if (Foods != null)
+                {
+                    foreach (var food in Foods)
+                    {
+                        <option value="@food.Id">@food.Name</option>
+                    }
+                }
+            </InputSelect>
+            <ValidationMessage For="@(() =>sale.FoodId)" />
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Date: </label>
+        <div>
+            <InputDate @bind-Value="sale.SaleTime" class="form-control"/>
+            <ValidationMessage For="@(() =>sale.SaleTime)" />
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success btn-block">
+        Add Sale
+    </button>
+</EditForm>
+
+@code {
+    SalesReport sale = new SalesReport();
+
+    private IList<Customer> Customers;
+    private IList<Food> Foods;
+
+    protected async override Task OnInitializedAsync()
+    {
+        Foods = await _client.GetFromJsonAsync<List<Food>>($"{EndPoint.FoodsEndPoint}");
+        Customers =await _client.GetFromJsonAsync<List<Customer>>($"{EndPoint.CustomersEndPoint}");
+    }
+
+    private async Task AddSale()
+    {
+        await _client.PostAsJsonAsync(EndPoint.SalesReportEndPoint, sale);
+        _navManager.NavigateTo("/SalesReport");
+    }
+
+
+}

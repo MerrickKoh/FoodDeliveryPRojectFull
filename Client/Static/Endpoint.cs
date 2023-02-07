@@ -16,5 +16,8 @@ namespace FoodDeliveryPRojectFull.Client.Static
         public static readonly string OrdersEndPoint = $"{Prefix}/orders";
         public static readonly string PaymentsEndPoint = $"{Prefix}/payments";
         public static readonly string AccountsEndPoint = $"{Prefix}/accounts";
+        public static readonly string SalesReportEndPoint = $"{Prefix}/salesreport";
+        public static readonly string DeliveryEndPoint = $"{Prefix}/Delivery";
+
     }
 }
