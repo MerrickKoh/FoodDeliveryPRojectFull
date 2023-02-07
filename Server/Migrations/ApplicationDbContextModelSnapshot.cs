@@ -94,19 +94,19 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = "0ad66375-7be5-4cb8-806e-c9ad74dc781d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0f50e4bd-3f88-4e28-8368-615f71e27be0",
+                            ConcurrencyStamp = "304421db-5038-4481-b9f2-ace968880f9c",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
                             LastName = "User",
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
-                            NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEP23UexS+4lM5ZjYGaBpOEGpkEueIC/4siJQWUKoUSEnMNITz/p3mt3VPYl+O7RKaQ==",
+                            NormalizedUserName = "ADMIN@LOCALHOST.COM",
+                            PasswordHash = "AQAAAAEAACcQAAAAEGApc7zftyIdkcfBJ7UA4xWU5qRDBePEEeC3FoRNfo0sSXA1EyMOov/JwAZeUFKqKg==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "16e583d1-293a-47a4-b609-0432a0b6a971",
+                            SecurityStamp = "81c29b39-548c-4b2f-84ff-92f936fcd10c",
                             TwoFactorEnabled = false,
-                            UserName = "Admin"
+                            UserName = "admin@localhost.com"
                         });
                 });
 
@@ -143,8 +143,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 940, DateTimeKind.Local).AddTicks(7523),
-                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(996),
+                            DateCreated = new DateTime(2023, 2, 7, 16, 19, 10, 544, DateTimeKind.Local).AddTicks(7062),
+                            DateUpdated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(4429),
                             Name = "Sushi",
                             UpdatedBy = "System"
                         },
@@ -152,8 +152,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2552),
-                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2559),
+                            DateCreated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5082),
+                            DateUpdated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5086),
                             Name = "Ramen",
                             UpdatedBy = "System"
                         },
@@ -161,8 +161,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2565),
-                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2567),
+                            DateCreated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5088),
+                            DateUpdated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5089),
                             Name = "Curry",
                             UpdatedBy = "System"
                         },
@@ -170,8 +170,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 4,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2570),
-                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2572),
+                            DateCreated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5090),
+                            DateUpdated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5091),
                             Name = "Bento",
                             UpdatedBy = "System"
                         },
@@ -179,8 +179,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 5,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2575),
-                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2577),
+                            DateCreated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5092),
+                            DateUpdated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5093),
                             Name = "Soup",
                             UpdatedBy = "System"
                         },
@@ -188,8 +188,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 6,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2579),
-                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2581),
+                            DateCreated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5094),
+                            DateUpdated = new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5095),
                             Name = "Drinks",
                             UpdatedBy = "System"
                         });
@@ -527,14 +527,14 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         new
                         {
                             Id = "4d6ff59a-9f53-4128-801b-2f1c8630aa69",
-                            ConcurrencyStamp = "4417eaf6-99fe-4c10-9681-64664ef61cc6",
+                            ConcurrencyStamp = "d97d638a-b834-443b-8e28-54719f420e78",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "75a8c3ae-282b-4c8a-88c2-be8c0cd23659",
-                            ConcurrencyStamp = "0e9d5d07-b7e1-4d22-a225-9bc0fdb610f0",
+                            ConcurrencyStamp = "6c61c8cc-a555-4ca5-a6f7-4e40ad25b0a3",
                             Name = "User",
                             NormalizedName = "USER"
                         });

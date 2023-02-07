@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FoodDeliveryPRojectFull.Server.Migrations
 {
-    public partial class ab : Migration
+    public partial class hopetobefinal : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -343,26 +343,26 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4d6ff59a-9f53-4128-801b-2f1c8630aa69", "4417eaf6-99fe-4c10-9681-64664ef61cc6", "Administrator", "ADMINISTRATOR" },
-                    { "75a8c3ae-282b-4c8a-88c2-be8c0cd23659", "0e9d5d07-b7e1-4d22-a225-9bc0fdb610f0", "User", "USER" }
+                    { "4d6ff59a-9f53-4128-801b-2f1c8630aa69", "d97d638a-b834-443b-8e28-54719f420e78", "Administrator", "ADMINISTRATOR" },
+                    { "75a8c3ae-282b-4c8a-88c2-be8c0cd23659", "6c61c8cc-a555-4ca5-a6f7-4e40ad25b0a3", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "0ad66375-7be5-4cb8-806e-c9ad74dc781d", 0, "0f50e4bd-3f88-4e28-8368-615f71e27be0", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEP23UexS+4lM5ZjYGaBpOEGpkEueIC/4siJQWUKoUSEnMNITz/p3mt3VPYl+O7RKaQ==", null, false, "16e583d1-293a-47a4-b609-0432a0b6a971", false, "Admin" });
+                values: new object[] { "0ad66375-7be5-4cb8-806e-c9ad74dc781d", 0, "304421db-5038-4481-b9f2-ace968880f9c", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN@LOCALHOST.COM", "AQAAAAEAACcQAAAAEGApc7zftyIdkcfBJ7UA4xWU5qRDBePEEeC3FoRNfo0sSXA1EyMOov/JwAZeUFKqKg==", null, false, "81c29b39-548c-4b2f-84ff-92f936fcd10c", false, "admin@localhost.com" });
 
             migrationBuilder.InsertData(
                 table: "Catergory",
                 columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "Name", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "System", new DateTime(2023, 2, 7, 13, 39, 40, 940, DateTimeKind.Local).AddTicks(7523), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(996), "Sushi", "System" },
-                    { 2, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2552), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2559), "Ramen", "System" },
-                    { 3, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2565), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2567), "Curry", "System" },
-                    { 4, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2570), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2572), "Bento", "System" },
-                    { 5, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2575), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2577), "Soup", "System" },
-                    { 6, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2579), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2581), "Drinks", "System" }
+                    { 1, "System", new DateTime(2023, 2, 7, 16, 19, 10, 544, DateTimeKind.Local).AddTicks(7062), new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(4429), "Sushi", "System" },
+                    { 2, "System", new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5082), new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5086), "Ramen", "System" },
+                    { 3, "System", new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5088), new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5089), "Curry", "System" },
+                    { 4, "System", new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5090), new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5091), "Bento", "System" },
+                    { 5, "System", new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5092), new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5093), "Soup", "System" },
+                    { 6, "System", new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5094), new DateTime(2023, 2, 7, 16, 19, 10, 545, DateTimeKind.Local).AddTicks(5095), "Drinks", "System" }
                 });
 
             migrationBuilder.InsertData(

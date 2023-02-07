@@ -22,8 +22,8 @@ namespace FoodDeliveryPRojectFull.Server.Configurations.Entities
                 NormalizedEmail = "ADMIN@LOCALHOST.COM",
                 FirstName = "Admin",
                 LastName = "User",
-                UserName = "Admin",
-                NormalizedUserName = "ADMIN",
+                UserName = "admin@localhost.com",
+                NormalizedUserName = "ADMIN@LOCALHOST.COM",
                 PasswordHash = hasher.HashPassword(null, "P@ssword1")
             }
             );
