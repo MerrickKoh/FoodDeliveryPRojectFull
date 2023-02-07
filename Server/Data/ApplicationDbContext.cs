@@ -25,7 +25,8 @@ namespace FoodDeliveryPRojectFull.Server.Data
         public DbSet<Food> Food { get; set; }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Payment> Payment { get; set; }
-       
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
