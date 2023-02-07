@@ -94,7 +94,7 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = "0ad66375-7be5-4cb8-806e-c9ad74dc781d",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "5f72f80a-0d23-45f6-8d97-e72fb2ac6d63",
+                            ConcurrencyStamp = "0f50e4bd-3f88-4e28-8368-615f71e27be0",
                             Email = "admin@localhost.com",
                             EmailConfirmed = false,
                             FirstName = "Admin",
@@ -102,9 +102,9 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "ADMIN@LOCALHOST.COM",
                             NormalizedUserName = "ADMIN",
-                            PasswordHash = "AQAAAAEAACcQAAAAEEsQmZlTiWQbfmIOYFblydnmNWEURMUSzoCKRwPddt4QN7WfSWEouABYPNeCLNplKw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEP23UexS+4lM5ZjYGaBpOEGpkEueIC/4siJQWUKoUSEnMNITz/p3mt3VPYl+O7RKaQ==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "a83ba360-fbe9-4d40-becc-cebf6ab63e0b",
+                            SecurityStamp = "16e583d1-293a-47a4-b609-0432a0b6a971",
                             TwoFactorEnabled = false,
                             UserName = "Admin"
                         });
@@ -127,7 +127,9 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -141,8 +143,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 1,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(68),
-                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(8480),
+                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 940, DateTimeKind.Local).AddTicks(7523),
+                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(996),
                             Name = "Sushi",
                             UpdatedBy = "System"
                         },
@@ -150,8 +152,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 2,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9201),
-                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9205),
+                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2552),
+                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2559),
                             Name = "Ramen",
                             UpdatedBy = "System"
                         },
@@ -159,8 +161,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 3,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9207),
-                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9208),
+                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2565),
+                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2567),
                             Name = "Curry",
                             UpdatedBy = "System"
                         },
@@ -168,8 +170,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 4,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9210),
-                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9211),
+                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2570),
+                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2572),
                             Name = "Bento",
                             UpdatedBy = "System"
                         },
@@ -177,8 +179,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 5,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9212),
-                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9213),
+                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2575),
+                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2577),
                             Name = "Soup",
                             UpdatedBy = "System"
                         },
@@ -186,8 +188,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         {
                             Id = 6,
                             CreatedBy = "System",
-                            DateCreated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9214),
-                            DateUpdated = new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9215),
+                            DateCreated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2579),
+                            DateUpdated = new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2581),
                             Name = "Drinks",
                             UpdatedBy = "System"
                         });
@@ -201,9 +203,11 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("Address")
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("Contact")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")
@@ -216,10 +220,13 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("PaymentId")
                         .HasColumnType("int");
@@ -251,7 +258,9 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -284,10 +293,13 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ImgUrl")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int?>("OrdersId")
                         .HasColumnType("int");
@@ -354,6 +366,7 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("CardNo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("CreatedBy")
@@ -369,7 +382,9 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Svc")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(4)
+                        .HasColumnType("nvarchar(4)");
 
                     b.Property<string>("UpdatedBy")
                         .HasColumnType("nvarchar(max)");
@@ -512,14 +527,14 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                         new
                         {
                             Id = "4d6ff59a-9f53-4128-801b-2f1c8630aa69",
-                            ConcurrencyStamp = "06b44c06-c730-4b97-b9e7-1694a35e3411",
+                            ConcurrencyStamp = "4417eaf6-99fe-4c10-9681-64664ef61cc6",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "75a8c3ae-282b-4c8a-88c2-be8c0cd23659",
-                            ConcurrencyStamp = "7085b31e-51db-41a5-834a-d836bdfce4e1",
+                            ConcurrencyStamp = "0e9d5d07-b7e1-4d22-a225-9bc0fdb610f0",
                             Name = "User",
                             NormalizedName = "USER"
                         });

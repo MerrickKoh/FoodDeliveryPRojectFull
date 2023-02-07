@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FoodDeliveryPRojectFull.Server.Migrations
 {
-    public partial class newm : Migration
+    public partial class ab : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -54,7 +54,7 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -90,7 +90,7 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     CreatedBy = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -107,8 +107,8 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Svc = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    CardNo = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Svc = table.Column<string>(type: "nvarchar(4)", maxLength: 4, nullable: false),
+                    CardNo = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Expire = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -252,10 +252,10 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Contact = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Address = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Contact = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Address = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PaymentId = table.Column<int>(type: "int", nullable: false),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -279,11 +279,11 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     Price = table.Column<int>(type: "int", nullable: false),
                     EventsId = table.Column<int>(type: "int", nullable: false),
                     CatergoryId = table.Column<int>(type: "int", nullable: false),
-                    ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ImgUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     OrdersId = table.Column<int>(type: "int", nullable: true),
                     DateCreated = table.Column<DateTime>(type: "datetime2", nullable: false),
                     DateUpdated = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -343,26 +343,26 @@ namespace FoodDeliveryPRojectFull.Server.Migrations
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
                 values: new object[,]
                 {
-                    { "4d6ff59a-9f53-4128-801b-2f1c8630aa69", "06b44c06-c730-4b97-b9e7-1694a35e3411", "Administrator", "ADMINISTRATOR" },
-                    { "75a8c3ae-282b-4c8a-88c2-be8c0cd23659", "7085b31e-51db-41a5-834a-d836bdfce4e1", "User", "USER" }
+                    { "4d6ff59a-9f53-4128-801b-2f1c8630aa69", "4417eaf6-99fe-4c10-9681-64664ef61cc6", "Administrator", "ADMINISTRATOR" },
+                    { "75a8c3ae-282b-4c8a-88c2-be8c0cd23659", "0e9d5d07-b7e1-4d22-a225-9bc0fdb610f0", "User", "USER" }
                 });
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
                 columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "FirstName", "LastName", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
-                values: new object[] { "0ad66375-7be5-4cb8-806e-c9ad74dc781d", 0, "5f72f80a-0d23-45f6-8d97-e72fb2ac6d63", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEEsQmZlTiWQbfmIOYFblydnmNWEURMUSzoCKRwPddt4QN7WfSWEouABYPNeCLNplKw==", null, false, "a83ba360-fbe9-4d40-becc-cebf6ab63e0b", false, "Admin" });
+                values: new object[] { "0ad66375-7be5-4cb8-806e-c9ad74dc781d", 0, "0f50e4bd-3f88-4e28-8368-615f71e27be0", "admin@localhost.com", false, "Admin", "User", false, null, "ADMIN@LOCALHOST.COM", "ADMIN", "AQAAAAEAACcQAAAAEP23UexS+4lM5ZjYGaBpOEGpkEueIC/4siJQWUKoUSEnMNITz/p3mt3VPYl+O7RKaQ==", null, false, "16e583d1-293a-47a4-b609-0432a0b6a971", false, "Admin" });
 
             migrationBuilder.InsertData(
                 table: "Catergory",
                 columns: new[] { "Id", "CreatedBy", "DateCreated", "DateUpdated", "Name", "UpdatedBy" },
                 values: new object[,]
                 {
-                    { 1, "System", new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(68), new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(8480), "Sushi", "System" },
-                    { 2, "System", new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9201), new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9205), "Ramen", "System" },
-                    { 3, "System", new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9207), new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9208), "Curry", "System" },
-                    { 4, "System", new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9210), new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9211), "Bento", "System" },
-                    { 5, "System", new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9212), new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9213), "Soup", "System" },
-                    { 6, "System", new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9214), new DateTime(2023, 2, 3, 14, 36, 37, 428, DateTimeKind.Local).AddTicks(9215), "Drinks", "System" }
+                    { 1, "System", new DateTime(2023, 2, 7, 13, 39, 40, 940, DateTimeKind.Local).AddTicks(7523), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(996), "Sushi", "System" },
+                    { 2, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2552), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2559), "Ramen", "System" },
+                    { 3, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2565), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2567), "Curry", "System" },
+                    { 4, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2570), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2572), "Bento", "System" },
+                    { 5, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2575), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2577), "Soup", "System" },
+                    { 6, "System", new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2579), new DateTime(2023, 2, 7, 13, 39, 40, 942, DateTimeKind.Local).AddTicks(2581), "Drinks", "System" }
                 });
 
             migrationBuilder.InsertData(
