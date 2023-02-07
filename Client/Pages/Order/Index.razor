@@ -2,6 +2,8 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
+@inject HttpInterceptorService _interceptor
+@implements IDisposable
 <h3>Orders</h3>
 <a href="/Orders/create" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
@@ -16,7 +18,7 @@
 
 else
 {
-    <table class="table table-responsive">
+    <table class="table table-responsive" id="orderTable">
         <thead>
             <tr>
                 <th>Order Id</th>
@@ -27,6 +29,7 @@ else
                 <th>Email</th>
                 <th>Price</th>
                 <th>Date</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -41,7 +44,7 @@ else
                     <td>@Order.Customer.Email</td>
                     <td>@Order.Food.Price </td>
                     <td>@Order.OrderTime.Date.ToString("dd MMMM yyyy")</td>
-                   
+
 
                     <td>
                         <a href="/Orders/view/@Order.Id" class="btn btn-primary">
@@ -69,6 +72,7 @@ else
 
     protected async override Task OnInitializedAsync()
     {
+        _interceptor.MonitorEvent();
         Orders = await _client.GetFromJsonAsync<List<Orders>>($"{EndPoint.OrdersEndPoint}");
     }
 
@@ -82,5 +86,15 @@ else
             await OnInitializedAsync();
         }
     }
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#orderTable");
+    }
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#orderTable");
+        _interceptor.DisposeEvent();
+    }
+
 
 }

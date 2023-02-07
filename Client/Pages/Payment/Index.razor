@@ -2,6 +2,8 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
+@inject HttpInterceptorService _interceptor
+@implements IDisposable
 
 <h3>Cards</h3>
 
@@ -13,17 +15,18 @@
 
 else
 {
-    <table class="table table-responsive">
+    <table class="table table-responsive" id="payTable">
         <thead>
             <tr>
                 <th>Card Id</th>
                 <th>Card no</th>
                 <th>Svc</th>
                 <th>Expiry Date</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
-            
+
             @foreach (var Payment in Payments)
             {
                 <tr>
@@ -51,6 +54,7 @@ else
 
     protected async override Task OnInitializedAsync()
     {
+        _interceptor.MonitorEvent();
         Payments = await _client.GetFromJsonAsync<List<Payment>>($"{EndPoint.PaymentsEndPoint}");
     }
 
@@ -63,5 +67,14 @@ else
             await _client.DeleteAsync($"{EndPoint.PaymentsEndPoint}/{PaymentId}");
             await OnInitializedAsync();
         }
+    }
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#payTable");
+    }
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#payTable");
+        _interceptor.DisposeEvent();
     }
 }

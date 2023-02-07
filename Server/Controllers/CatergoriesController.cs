@@ -26,6 +26,7 @@ namespace FoodDeliveryPRojectFull.Server.Controllers
         [HttpGet]
         public async Task<IActionResult>GetCatergory()
         {
+         
             var catergories = await _unitOfWork.Catergories.GetAll();
             return Ok(catergories);
         }
@@ -34,6 +35,7 @@ namespace FoodDeliveryPRojectFull.Server.Controllers
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCatergory(int id)
         {
+            
             var catergory = await _unitOfWork.Catergories.Get(q => q.Id == id);
 
             if (catergory == null)

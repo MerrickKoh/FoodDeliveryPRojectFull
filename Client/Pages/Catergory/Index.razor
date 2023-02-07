@@ -2,11 +2,15 @@
 @inject HttpClient _client
 @inject IJSRuntime js
 @attribute [Authorize]
+@inject HttpInterceptorService _interceptor
+@implements IDisposable
 <h3>Catergories</h3>
 <a href="/Catergories/create" class="btn btn-secondary">
     <span class="oi oi-plus"></span>
     Create New Catergory
 </a>
+<br />
+<br />
 
 @if (Catergories == null)
 {
@@ -15,7 +19,7 @@
 
 else
 {
-    <table class="table table-responsive">
+    <table class="table table-responsive" id="catTable">
         <thead>
             <tr>
                 <th>Name</th>
@@ -24,7 +28,7 @@ else
         </thead>
         <tbody>
             @foreach (var catergory in Catergories)
-            { 
+            {
                 <tr>
                     <td>@catergory.Name</td>
                     <td>
@@ -53,6 +57,7 @@ else
 
     protected async override Task OnInitializedAsync()
     {
+        _interceptor.MonitorEvent();
         Catergories = await _client.GetFromJsonAsync<List<Catergory>>($"{EndPoint.CatergoriesEndPoint}");
     }
 
@@ -65,6 +70,15 @@ else
             await _client.DeleteAsync($"{EndPoint.CatergoriesEndPoint}/{CatergoryId}");
             await OnInitializedAsync();
         }
+    }
+    protected async override Task OnAfterRenderAsync(bool firstRender)
+    {
+        await js.InvokeVoidAsync("AddDataTable", "#catTable");
+    }
+    public void Dispose()
+    {
+        js.InvokeVoidAsync("DataTablesDispose", "#catTable");
+        _interceptor.DisposeEvent();
     }
 
 }
