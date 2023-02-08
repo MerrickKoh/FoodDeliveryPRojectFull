@@ -42,9 +42,9 @@ else
                     <td>@Deliver.OrderTime.Date.ToString("dd MMMM yyyy")</td>
                     <td>@Deliver.Status</td>
                     <td>
-                        <button class="btn btn-primary" @onclick="@(()=>Ready(Deliver.Id)"> 
-                            <span class="oi oi-check"></span>
-                        </button>
+                        <a href="/Delivery/edit/@Deliver.Id" class="btn btn-warning">
+                            <span class="oi oi-book"></span>
+                        </a>
                         <a href="/Delivery/edit/@Deliver.Id" class="btn btn-warning">
                             <span class="oi oi-pencil"></span>
                         </a>
@@ -77,11 +77,5 @@ else
             await _client.DeleteAsync($"{EndPoint.DeliveryEndPoint}/{DeliverId}");
             await OnInitializedAsync();
         }
-    }
-
-    // Set Delivery status as ready
-    async Task Ready(int DeliverId)
-    {
-
     }
 }

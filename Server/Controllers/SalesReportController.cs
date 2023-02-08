@@ -51,7 +51,7 @@ namespace FoodDeliveryPRojectFull.Server.Controllers
             {
                 return BadRequest();
             }
-            _unitOfWork.Sale.Update(Sale);
+            _unitOfWork.SalesReport.Update(Sale);
             try
             {
                 await _unitOfWork.Save(HttpContext);
@@ -85,7 +85,7 @@ namespace FoodDeliveryPRojectFull.Server.Controllers
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteSale(int id)
         {
-            var Sale = await _unitOfWork.Sale.Get(q => q.Id == id);
+            var Sale = await _unitOfWork.SalesReport.Get(q => q.Id == id);
             if (Sale == null)
             {
                 return NotFound();
@@ -99,7 +99,7 @@ namespace FoodDeliveryPRojectFull.Server.Controllers
 
         private async Task<bool> SaleExists(int id)
         {
-            var Sale = await _unitOfWork.Sale.Get(q => q.Id == id);
+            var Sale = await _unitOfWork.SalesReport.Get(q => q.Id == id);
             return Sale != null;
         }
     }
